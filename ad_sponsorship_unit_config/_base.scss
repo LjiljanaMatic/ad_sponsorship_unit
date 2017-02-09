@@ -1,0 +1,70 @@
+//
+// Spreadsheet style used on /buzzfeed/ad_sponsorship_unit_config
+// ------------------------------------------------------------
+//
+
+#rwag-config {
+	h1 {
+		margin-top: 4px;
+		font-size: 18px;
+		font-weight: bold;
+		color: #E32;	
+	}
+
+	h2 { 
+		margin-top: 4px;
+		font-size: 14px;
+		font-weight: bold;
+		line-height: 24px;
+	}
+
+	btn {
+		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	}
+
+	&__title { 
+		margin: 10px auto; 
+		font-size: 20px; 
+		font-weight: bold; 
+	}
+
+	&__form { 
+		position: absolute; 
+		padding: 16px; 
+		margin: 0 0 12px 0; 
+		background: #F7F7F7; 
+		border: 2px solid #DBDBDB; 
+		border-radius: 5px;
+		width: 950px; 
+	}
+
+	&__btn {
+		height: 55px;
+		position: relative;
+		bottom: 0px;
+		width: 100%;
+		text-align: center;
+		margin-top: 30px;
+	}
+
+	&__result {
+		font-size: 18px;
+		padding: 10px 0px;
+		text-align: center;
+	}
+
+	&__error {
+		color: #E32;
+	}
+}
+
+.image_holder {
+	float: left;
+	position: relative;
+	margin: 0 0 10px 10px;
+	box-shadow: 5px 0px 5px #888888;
+
+	p {
+		font-size: 13px;
+	}
+}

@@ -1,0 +1,36 @@
+// React w/a Gif upload buttons block
+
+.upload-button {
+	height: 8px;
+
+	.qq-upload-button {
+		position: absolute;
+		text-align: center;
+		padding: 10px;
+		margin-left: 20px;
+		top: 15px;
+		color: white;
+		background: #07e;
+		border-radius: 5px;
+
+		&:hover {
+			background-color: #005dbb;
+			color: white;
+		}
+	}
+}
+
+.qq-upload-success {
+	span {
+		margin-left: 10px;
+	}
+}
+
+.qq-upload-failed-text {
+	display: none;
+}
+
+.image_spinner img { 
+	width: 150px; 
+	margin-left: 15px; 
+}

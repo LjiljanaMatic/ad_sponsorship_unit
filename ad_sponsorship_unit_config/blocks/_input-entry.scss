@@ -1,0 +1,67 @@
+// React w/a Gif input entry block
+// -------------------------------
+
+.rwag-config-input {
+	margin: 9px 0px;
+	font-size: 15px;
+	clear: both;
+
+	label {
+		font-size: 14px;
+	}
+
+	input {
+		margin-top: 20px;
+	}
+
+	input[type=checkbox] {
+		margin-top: -3px;
+	}
+
+	.check_input {
+		margin-right: 20px;
+	}
+}
+
+// React w/a Gif flight block
+// -------------------------------
+
+#rwag-config-flight {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#rwag-config-flight-info {
+	border: 1px solid #BBB;
+	border-radius: 5px;
+	background: #FFFFFF;
+	padding: 10px;
+}
+
+.flight {
+	margin: 7px 0px;
+
+	.flight_time {
+		margin-right: 3px;
+	}
+	.btn-mini {
+		margin: -3px 0px 0px 3px;
+	}
+}
+
+// Custom styling for date picker block
+// -------------------------------
+
+.daterangepicker {
+	font-size: 14px;
+
+	.btn-small {
+		background-color: #07e;
+		border-radius: 5px;
+		color: white;
+		margin-right: 10px;
+		margin-top: 10px;
+		padding: 5px 9px;
+		font-size: 12px;
+	}
+}

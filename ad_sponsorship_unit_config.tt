@@ -1,0 +1,103 @@
+[% #Template for Ad Sponsorship Unit configuration tool for adding branded React w/a GIF campaign for a certain period of time %]
+
+[% PROCESS "public/includes/bf4_header.tt"
+	page			= "BuzzFeed Ad Sponsorship Unit Config"
+	css_body		= ""
+	css_stylesheet	= "ccss/ad_sponsorship_unit_config/main"
+	page_title		= "BuzzFeed Ad Sponsorship Unit Config"
+
+	## auto load js scripts....
+	js_auto_scripts = "AdSponsorshipUnitConfig"
+	no_index = 1
+	no_header_buzz = 1
+	no_page_header = 1
+	number_of_reactions = 5
+%]
+
+<div id="rwag-config" class="content">
+	<h1 id="rwag-config__title">Add or Edit Custom RWAG Campaign</h1>
+	<form id="rwag-config__form">
+		<div class="form-elements">
+			<div id="logo-upload">
+				<div id="logo-upload__holder">
+					<div class="qq-upload-drop-area" style="display:none">
+						<div id="logo-upload--drop"></div>
+					</div>
+					<img id="logo-upload--preview" style="display:none">
+					<p id="logo-upload__size">Upload or drop image with size of 215px x 50px</p>
+				</div>
+				<div id="js-logo-upload_dragdrop_dynamic_fields" class="upload-button"></div>
+				<p id="logo-upload__description">*Upload "Promoted By" logo that will be positioned above carousel</p>
+			</div>
+			<div id="asset-upload">
+				<div id="asset-upload__holder">
+					<div class="qq-upload-drop-area" style="display:none">
+						<div id="asset-upload--drop">Drop assets here</div>
+					</div>					
+					<ul id="asset-upload__list" class="qq-upload-list"></ul>
+				</div>
+				<div id="js-asset-upload_dragdrop_dynamic_fields" class="upload-button"></div>
+				<p id="asset-upload__description">*Upload 5 static images and 5 reaction gifs one by one. GIF need to have the same name as its image pair so they can be joined (fail.png AND fail.gif) !</p>
+			</div>
+			<div class="image_spinner loader" style="display:none;"></div>
+			<div id="rwag-config__btn">
+				<a class="btn--buzz btn--buzz--small btn--buzz--inline bf_dom" rel:bf_bucket="remove-assets" style="margin-left: -320px">Remove All Uploaded Assets</a>
+			</div>
+			<div class="rwag-config-input">
+				<label for="rwag-config-gif-order">
+					<input id="rwag-config-gif-order" class="bf_dom" placeholder="Example: wut, win, cute, lol, fail" value="" type="text" name="rwag-config-gif-order" size="50" /> *Define GIF order with placing thair uploaded names (comma separate)
+				</label>
+			</div>			
+			<div class="rwag-config-input">
+				<label for="rwag-config-advertiser">
+					<input id="rwag-config-advertiser" class="bf_dom" placeholder="Example: tedisreal" value="" type="text" name="rwag-config-advertiser" size="50" /> *Advertiser User Account
+				</label>
+			</div>
+			<div class="rwag-config-input">
+				<label for="rwag-config-impression">
+					<input id="rwag-config-impression" class="bf_dom" placeholder="Impression tracking" value="" type="text" name="rwag-config-impression" size="100" /> *Impression tracking (optional)
+				</label>
+			</div>
+			<div class="rwag-config-input">
+				<label for="rwag-config-click">
+					<input id="rwag-config-click" class="bf_dom" placeholder="Click tracking" value="" type="text" name="rwag-config-click" size="100" /> *Click tracking (optional)
+				</label>
+			</div>
+			<div class="rwag-config-input">
+				<a id="rwag-config-flight" class="btn--buzz btn--buzz--small btn--buzz--inline">Add a flight start and end date</a>
+			</div>
+			<div id="rwag-config-flight-info" class="rwag-config-input" style="display:none;">
+				<h1>Flight Info</h1>
+				<div id="rwag_container"><h2>When will the custom React w/5 gifs show?</h2></div>
+			</div>
+		</div>
+		<div id="rwag-config__result" style="display:none"></div>
+		<div id="rwag-config__btn">
+			<a id="rwag-config__submit" class="btn--buzz btn--buzz--inline bf_dom" rel:bf_bucket="rwag-config-submit" onclick="return false" href="javascript:;">[% IF advertiser %] Update RWAG Campaign[% ELSE %]Create Custom RWAG Campaign[% END %]</a>
+			<div id="rwag-config__error"></div>
+		</div>
+		<input type="hidden" name="start_date" id="start_date" class="datepicker" value="" autocomplete="off" />    
+		<input type="hidden" name="end_date" id="end_date" class="datepicker" value="" autocomplete="off" />
+		<br />
+		<h1 id="rwag-config__title">All Custom RWAG Campaigns (Select to EDIT)</h1>
+		<br />
+		<div class="rwag-config__list">
+			[% FOREACH rwag IN sorted_ad_sponsorship_unit_config %]
+				<div class="image_holder">
+					<a href="/buzzfeed/ad_sponsorship_unit_config/[% rwag.id %]">
+						<img id="rwag_logo_preview" src="[% image_root %][% rwag.logo.image %]" name="rwag_logo_preview">
+						<p class="rwag__start-at">Starts at: <span class="[% IF id == rwag.id %]disabled[% ELSE %]enabled[% END %]">[% rwag.start_at %]</span></p>
+						<p class="rwag__end-at">Ends at: <span class="[% IF id == rwag.id %]disabled[% ELSE %]enabled[% END %]">[% rwag.end_at %]</span></p>
+					</a>
+				</div>
+			[% END %]
+		</div>
+		<br />	
+	</form>
+</div>
+[% IF ad_sponsorship_unit_info %]
+<textarea id="ad_sponsorship_unit_info" class="[% advertiser %]" style="display:none">
+	[% ad_sponsorship_unit_info %]
+</textarea>
+[% END %]
+[% PROCESS "public/includes/bf4_footer.tt" %]

@@ -1,0 +1,70 @@
+$upload-background: #cccccc;
+$drop-color: #999999;
+$upload-shadow: 0 2px 3px rgba(0,0,0,.18);
+
+// React w/a Gif logo upload block
+// -------------------------------
+
+#logo-upload { 
+	height: 60px;
+	position: relative;
+
+	&__holder { 
+		width: 214px; 
+		height: 50px; 
+		float: left; 
+		position: relative; 
+		background: $upload-background;
+		box-shadow: $upload-shadow;
+	}
+
+	&--drop {
+		background: $drop-color;
+		width: 214px; 
+		height: 50px;		
+	}
+
+	&__size {
+		position: absolute; 
+		left: 15px; 
+		color: #999999; 
+		font-size: 15px; 
+		margin: 0 auto; 		
+	}
+
+	&__description {
+		margin-left: 350px;
+		margin-top: -5px;
+		font-size: 15px;
+	}
+}
+
+// React w/a Gif static asset upload block
+// -------------------------------------------
+
+#asset-upload {
+	margin-top: 20px;
+	height: 90px;
+	position: relative;
+
+	&__holder {
+		position: relative;
+		width: 350px; 
+		height: 200px;
+		float: left;
+		background: $upload-background;
+		box-shadow: $upload-shadow;
+	}
+
+	&--drop {
+		background: $drop-color;
+		width: 150px; 
+		height: 80px;		
+	}
+
+	&__description {
+		margin-left: 500px;
+		margin-top: -5px;
+		font-size: 15px;
+	}
+}

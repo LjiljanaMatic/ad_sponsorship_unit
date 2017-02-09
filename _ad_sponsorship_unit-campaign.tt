@@ -1,0 +1,35 @@
+[%#
+
+  Ad Sponsorship Unit Config
+  --------
+
+  @PARAMS
+    ad_sponsorship_unit_campaigns - array of React w/a Gif campaigns objects
+%]
+
+[%
+  USE BFJSON;
+  ad_sponsorship_unit_campaigns =   BFJSON.encode(ad_sponsorship_unit_campaigns);
+%]
+
+[% IF ad_sponsorship_unit_campaigns %]
+  <script language="javascript">
+    (function(){
+      try {
+        var config_tmp = [% ad_sponsorship_unit_campaigns %];
+        if (typeof config_tmp !== "undefined" && config_tmp && typeof config_tmp === "object") {
+          document.observe("dom:loaded", function() {  
+            var ad_sponsorship_unit_campaigns = new BF_AdSponsorshipUnitCampaign();
+            //BF-25375 "Promoted By" Logo view tracking 
+            window.addEventListener('scroll', function() { 
+              ad_sponsorship_unit_campaigns.logo_view_tracking(); 
+            });
+            ad_sponsorship_unit_campaigns.custom_campaigns(config_tmp);
+          });
+        }
+      } catch (e) {
+        console.error("Invalid Ad Sponsorship Unit config data!");
+      }
+    })();
+  </script>
+[% END %]
